@@ -20,3 +20,18 @@ docker image rm node-app-image
 
 # Remove a container
 docker rm node-app -f
+## Remove a container with its associated volumes
+docker rm node-app -fv
+
+# See builded images
+docker image ls
+
+# See created containers
+docker ps
+
+# Show docker volumes
+docker volume ls
+
+# Delete docker volume
+docker volume rm volume-name
+docker volume prune
