@@ -1,14 +1,19 @@
+# Build a docker image from a dockerfile
+docker build -t node-app-image .
+
+# Create the container from an image
+
+## custom environment variable
+docker run -v ${pwd}:/app:ro -v /app/node_modules -e PORT=4000 -d -p 3000:4000 --name node-app node-app-image
+
+## environment variable file
+docker run -v ${pwd}:/app:ro -v /app/node_modules --env-file ./.env -d -p 3000:4000 --name node-app node-app-image
+
 # Interact with the docker container using bash shell
 docker exec -it node-app bash
 
-# Create the container from an image
-docker run -v ${pwd}:/app:ro -v /app/node_modules -d -p 3000:3000 --name node-app node-app-image
-
 # Show the logs from a specified container
 docker logs node-app
-
-# Build a docker image from a dockerfile
-docker build -t node-app-image .
 
 # Remove an image
 docker image rm node-app-image
