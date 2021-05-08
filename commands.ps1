@@ -45,3 +45,5 @@ docker compose up -d --build
 # Destroy docker services (deleting unnecessary volumes)
 docker compose down -v
 
+# docker compose in dev env
+docker compose -f .\docker-compose.yml -f .\docker-compose.dev.yml up -d --build

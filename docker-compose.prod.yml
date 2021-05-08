@@ -3,9 +3,7 @@ services:
   node-app:
     build: .
     ports:
-      - "3000:4000"
+      - "3000:$PORT"
     env_file:
-      - ./.env
-    environment:
-      - NODE_ENV=production
+      - ./prod.env
     command: npm run start
