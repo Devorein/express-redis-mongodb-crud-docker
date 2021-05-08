@@ -35,3 +35,13 @@ docker volume ls
 # Delete docker volume
 docker volume rm volume-name
 docker volume prune
+
+# Compose docker services
+docker compose up -d
+
+# Rebuilds the image forcefully when composing services
+docker compose up -d --build
+
+# Destroy docker services (deleting unnecessary volumes)
+docker compose down -v
+
