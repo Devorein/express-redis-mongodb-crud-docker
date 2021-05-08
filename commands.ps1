@@ -9,3 +9,9 @@ docker logs node-app
 
 # Build a docker image from a dockerfile
 docker build -t node-app-image .
+
+# Remove an image
+docker image rm node-app-image
+
+# Remove a container
+docker rm node-app -f
