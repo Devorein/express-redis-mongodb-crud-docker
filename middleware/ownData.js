@@ -11,7 +11,7 @@ const auth = async (req, res, next) => {
         status: 'failure',
         message: 'Post not found'
       });
-    } else if (post.user._id !== user.id) {
+    } else if (post.user._id.toString() !== user._id.toString()) {
       return res.status(401).json({
         status: 'failure',
         message: 'Unauthenticated'
