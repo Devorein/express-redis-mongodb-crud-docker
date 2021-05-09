@@ -56,3 +56,6 @@ docker compose -f .\docker-compose.yml -f .\docker-compose.prod.yml up -d --buil
 
 # inspect a docker container
 docker inspect container-name
+
+# Show networks created by docker
+docker network ls 

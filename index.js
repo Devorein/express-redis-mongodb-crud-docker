@@ -1,9 +1,10 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const { MONGO_USER, MONGO_PASSWORD, MONGO_IP, MONGO_PORT, PORT, NODE_ENV } = require("./configs");
 
 const app = express();
 
-mongoose.connect("mongodb://devorein:Devorein123@172.22.0.2:27017/?authSource=admin", {
+mongoose.connect(`mongodb://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_IP}:${MONGO_PORT}/?authSource=admin`, {
   useUnifiedTopology: true,
   useNewUrlParser: true
 }).then(()=>{
@@ -12,10 +13,8 @@ mongoose.connect("mongodb://devorein:Devorein123@172.22.0.2:27017/?authSource=ad
   console.log("Error", err.message)
 });
 
-const PORT = process.env.PORT || 3000;
-
 app.listen(PORT, ()=> console.log(`Listening on port ${PORT}`));
 
 app.get("/",(_,res)=>{
-  res.send(`<h2>Listening at port ${PORT} in ${process.env.NODE_ENV} environment</h2>`)
+  res.send(`<h2>Listening at port ${PORT} in ${NODE_ENV} environment</h2>`)
 })

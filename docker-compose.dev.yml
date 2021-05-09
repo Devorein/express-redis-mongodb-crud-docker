@@ -15,4 +15,4 @@ services:
     command: npm run dev
   database:
     env_file:
-      - ./prod.env
+      - ./dev.env
