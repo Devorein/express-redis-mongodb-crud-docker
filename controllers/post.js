@@ -2,7 +2,8 @@ const Post = require('../models/Post');
 
 const getAllPosts = async (req, res, next) => {
   try {
-    const posts = await Post.find();
+    const posts = await Post.find().populate('user');
+    console.log(posts);
     res.status(200).json({
       status: 'success',
       data: {
@@ -19,7 +20,7 @@ const getAllPosts = async (req, res, next) => {
 
 const getPostById = async (req, res, next) => {
   try {
-    const post = await Post.findById(req.params.id);
+    const post = await Post.findById(req.params.id).populate('user');
     res.status(200).json({
       status: 'success',
       data: {
