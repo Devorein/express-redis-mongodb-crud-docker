@@ -2,6 +2,8 @@ version: "3"
 services:
   server:
     build: .
+    depends_on: 
+      - database
   database:
     image: mongo
     volumes:

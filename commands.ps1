@@ -54,6 +54,14 @@ docker compose -f .\docker-compose.yml -f .\docker-compose.dev.yml up -d --build
 # docker compose in prod env
 docker compose -f .\docker-compose.yml -f .\docker-compose.prod.yml up -d --build
 
+# docker compose for a single service without recomposing its deps
+docker compose -f .\docker-compose.yml -f .\docker-compose.dev.yml up -d --build --no-deps service-name
+
+# -f: Location to docker-compose.yml file
+# -d: run in daemon mode
+# --build: Build all images
+# --no-deps: Doesnt compose dependent servies
+
 # inspect a docker container
 docker inspect container-name
 
