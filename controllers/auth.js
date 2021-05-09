@@ -7,6 +7,7 @@ async function signup(req, res, next) {
       const hashedPassword = await argon2.hash(req.body.password);
       req.body.password = hashedPassword;
       const user = await User.create(req.body);
+      req.session.user = user;
       res.status(200).json({
         status: 'success',
         data: {
@@ -45,6 +46,7 @@ async function login(req, res, next) {
             message: 'username or password is incorrect'
           });
         } else {
+          req.session.user = user;
           return res.status(200).json({
             status: 'success',
             data: {
