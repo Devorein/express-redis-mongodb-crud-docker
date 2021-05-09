@@ -37,6 +37,7 @@ retryDatabaseConnection();
 app.get('/', (_, res) => {
   res.send(`<h2>Listening at port ${PORT} in ${NODE_ENV} environment</h2>`);
 });
+app.use(express.json());
 app.use('/api/v1/posts', PostRouter);
 app.listen(PORT, () =>
   console.log(`Listening at port ${PORT} in ${NODE_ENV} environment`)

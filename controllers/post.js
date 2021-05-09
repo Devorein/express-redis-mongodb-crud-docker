@@ -12,9 +12,7 @@ const getAllPosts = async (req, res, next) => {
   } catch (err) {
     res.status(400).json({
       status: 'failure',
-      data: {
-        posts: null
-      }
+      message: err.message
     });
   }
 };
@@ -31,9 +29,7 @@ const getPostById = async (req, res, next) => {
   } catch (err) {
     res.status(400).json({
       status: 'failure',
-      data: {
-        post: null
-      }
+      message: err.message
     });
   }
 };
@@ -50,9 +46,7 @@ const createPost = async (req, res, next) => {
   } catch (err) {
     res.status(400).json({
       status: 'failure',
-      data: {
-        post: null
-      }
+      message: err.message
     });
   }
 };
@@ -72,9 +66,7 @@ const updatePost = async (req, res, next) => {
   } catch (err) {
     res.status(400).json({
       status: 'failure',
-      data: {
-        post: null
-      }
+      message: err.message
     });
   }
 };
@@ -91,9 +83,7 @@ const deletePost = async (req, res, next) => {
   } catch (err) {
     res.status(400).json({
       status: 'failure',
-      data: {
-        deleted: true
-      }
+      message: err.message
     });
   }
 };
