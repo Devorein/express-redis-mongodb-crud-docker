@@ -1,6 +1,16 @@
 const express = require("express");
+const mongoose = require("mongoose");
 
 const app = express();
+
+mongoose.connect("mongodb://devorein:Devorein123@172.22.0.2:27017/?authSource=admin", {
+  useUnifiedTopology: true,
+  useNewUrlParser: true
+}).then(()=>{
+  console.log('Successfully connected to database')
+}).catch(err=>{
+  console.log("Error", err.message)
+});
 
 const PORT = process.env.PORT || 3000;
 
