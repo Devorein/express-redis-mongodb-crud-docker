@@ -3,7 +3,7 @@ const auth = (req, res, next) => {
   if (!user) {
     return res.status(401).json({
       status: 'failure',
-      message: 'Unauthorized'
+      message: 'Unauthenticated'
     });
   }
 
