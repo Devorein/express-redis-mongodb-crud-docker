@@ -1,12 +1,13 @@
-version: "3"
+version: '3'
 services:
+  load-balancer:
+    ports:
+      - '80:80'
   server:
     build:
       context: .
       args:
         NODE_ENV: production
-    ports:
-      - "4000:5000"
     env_file:
       - ./prod.env
     command: npm run start

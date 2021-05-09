@@ -1,12 +1,13 @@
-version: "3"
+version: '3'
 services:
+  load-balancer:
+    ports:
+      - '3000:80'
   server:
     build:
       context: .
       args:
         NODE_ENV: development
-    ports:
-      - "3000:4000"
     volumes:
       - ./:/app:ro
       - /app/node_modules
