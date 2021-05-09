@@ -53,3 +53,6 @@ docker compose -f .\docker-compose.yml -f .\docker-compose.dev.yml up -d --build
 
 # docker compose in prod env
 docker compose -f .\docker-compose.yml -f .\docker-compose.prod.yml up -d --build
+
+# inspect a docker container
+docker inspect container-name
