@@ -13,3 +13,6 @@ services:
     env_file:
       - ./dev.env
     command: npm run dev
+  database:
+    env_file:
+      - ./prod.env

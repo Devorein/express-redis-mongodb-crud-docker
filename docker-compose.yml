@@ -4,3 +4,7 @@ services:
     build: .
   database:
     image: mongo
+    volumes:
+      - mongo-db:/data/db
+volumes:
+  mongo-db:

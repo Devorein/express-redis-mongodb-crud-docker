@@ -42,7 +42,10 @@ docker compose up -d
 # Rebuilds the image forcefully when composing services
 docker compose up -d --build
 
-# Destroy docker services (deleting unnecessary volumes)
+# Destroy docker services
+docker compose down
+
+# Destroy docker services (deleting anonymous and named volumes)
 docker compose down -v
 
 # docker compose in dev env

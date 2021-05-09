@@ -10,3 +10,6 @@ services:
     env_file:
       - ./prod.env
     command: npm run start
+  database:
+    env_file:
+      - ./prod.env
