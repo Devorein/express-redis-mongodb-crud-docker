@@ -8,10 +8,36 @@ const {
   MONGO_IP,
   MONGO_PORT,
   PORT,
-  NODE_ENV
+  NODE_ENV,
+  REDIS_IP,
+  SESSION_SECRET,
+  REDIS_PORT
 } = require('./configs');
+const redis = require('redis');
+const session = require('express-session');
+const connectRedis = require('connect-redis');
+
+const RedisStore = connectRedis(session);
+const redisClient = redis.createClient({
+  host: REDIS_IP,
+  port: REDIS_PORT
+});
 
 const app = express();
+
+app.use(
+  session({
+    store: new RedisStore({ client: redisClient }),
+    secret: SESSION_SECRET,
+    cookie: {
+      secure: false,
+      resave: false,
+      saveUninitialized: false,
+      httpOnly: true,
+      maxAge: 30000
+    }
+  })
+);
 
 function retryDatabaseConnection() {
   console.log('Retrying mongodb connection');

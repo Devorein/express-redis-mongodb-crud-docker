@@ -8,5 +8,7 @@ services:
     image: mongo
     volumes:
       - mongo-db:/data/db
+  cache:
+    image: redis
 volumes:
   mongo-db:
