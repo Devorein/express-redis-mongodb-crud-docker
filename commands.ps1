@@ -54,6 +54,9 @@ docker compose -f .\docker-compose.yml -f .\docker-compose.dev.yml up -d --build
 # docker compose in prod env
 docker compose -f .\docker-compose.yml -f .\docker-compose.prod.yml up -d --build
 
+# Composing multiple instances of the same service
+docker compose -f .\docker-compose.yml -f .\docker-compose.prod.yml up -d --build --scale service-name=number_of_instances
+
 # docker compose for a single service without recomposing its deps
 docker compose -f .\docker-compose.yml -f .\docker-compose.dev.yml up -d --build --no-deps service-name
 

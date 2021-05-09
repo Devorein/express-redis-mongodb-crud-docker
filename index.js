@@ -1,5 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
+
 const PostRouter = require('./routes/post');
 const AuthRouter = require('./routes/auth');
 const {
@@ -25,6 +27,8 @@ const redisClient = redis.createClient({
 
 const app = express();
 
+app.enable('trust proxy');
+app.use(cors());
 app.use(
   session({
     store: new RedisStore({ client: redisClient }),
@@ -65,9 +69,13 @@ retryDatabaseConnection();
 app.get('/', (_, res) => {
   res.send(`<h2>Listening at port ${PORT} in ${NODE_ENV} environment</h2>`);
 });
+
 app.use(express.json());
 app.use('/api/v1/posts', PostRouter);
 app.use('/api/v1/auth', AuthRouter);
 app.listen(PORT, () =>
   console.log(`Listening at port ${PORT} in ${NODE_ENV} environment`)
 );
+
+// 1. Divide the google calculated time by 0.5
+// Order: Request

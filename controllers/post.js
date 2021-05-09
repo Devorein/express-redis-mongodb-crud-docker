@@ -3,7 +3,6 @@ const Post = require('../models/Post');
 const getAllPosts = async (req, res, next) => {
   try {
     const posts = await Post.find().populate('user');
-    console.log(posts);
     res.status(200).json({
       status: 'success',
       data: {
