@@ -17,6 +17,24 @@ const getAllUsers = async (req, res, next) => {
   }
 };
 
+const getUserById = async (req, res, next) => {
+  try {
+    const user = await User.findById(req.params.id);
+    res.status(200).json({
+      status: 'success',
+      data: {
+        user
+      }
+    });
+  } catch (err) {
+    res.status(400).json({
+      status: 'failure',
+      message: err.message
+    });
+  }
+};
+
 module.exports = {
-  getAllUsers
+  getAllUsers,
+  getUserById
 };

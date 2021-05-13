@@ -67,7 +67,7 @@ function retryDatabaseConnection() {
 
 retryDatabaseConnection();
 
-app.get('/', (_, res) => {
+app.get('/ping', (_, res) => {
   res.send(`<h2>Listening at port ${PORT} in ${NODE_ENV} environment</h2>`);
 });
 
