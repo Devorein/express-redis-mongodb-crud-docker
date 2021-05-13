@@ -4,6 +4,7 @@ const cors = require('cors');
 
 const PostRouter = require('./routes/post');
 const AuthRouter = require('./routes/auth');
+const UserRouter = require('./routes/user');
 const {
   MONGO_USER,
   MONGO_PASSWORD,
@@ -73,6 +74,7 @@ app.get('/', (_, res) => {
 app.use(express.json());
 app.use('/api/v1/posts', PostRouter);
 app.use('/api/v1/auth', AuthRouter);
+app.use('/api/v1/user', UserRouter);
 app.listen(PORT, () =>
   console.log(`Listening at port ${PORT} in ${NODE_ENV} environment`)
 );
