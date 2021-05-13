@@ -76,6 +76,3 @@ app.use('/api/v1/auth', AuthRouter);
 app.listen(PORT, () =>
   console.log(`Listening at port ${PORT} in ${NODE_ENV} environment`)
 );
-
-// 1. Divide the google calculated time by 0.5
-// Order: Request

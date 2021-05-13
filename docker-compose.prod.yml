@@ -8,9 +8,12 @@ services:
       context: .
       args:
         NODE_ENV: production
-    env_file:
-      - ./prod.env
+    environment:
+      - MONGO_USER: ${MONGO_USER}
+      - MONGO_PASSWORD: ${MONGO_PASSWORD}
+      - SESSION_SECRET: ${SESSION_SECRET}
     command: npm run start
   database:
-    env_file:
-      - ./prod.env
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
