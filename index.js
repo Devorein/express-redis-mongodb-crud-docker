@@ -74,7 +74,7 @@ app.get('/', (_, res) => {
 app.use(express.json());
 app.use('/api/v1/posts', PostRouter);
 app.use('/api/v1/auth', AuthRouter);
-app.use('/api/v1/user', UserRouter);
+app.use('/api/v1/users', UserRouter);
 app.listen(PORT, () =>
   console.log(`Listening at port ${PORT} in ${NODE_ENV} environment`)
 );
