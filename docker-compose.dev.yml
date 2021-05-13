@@ -11,10 +11,10 @@ services:
     volumes:
       - ./:/app:ro
       - /app/node_modules
-    env_file:
-      - ./dev.env
     command: npm run dev
     environment:
+      - NODE_ENV: development
+      - PORT: 4000
       - MONGO_USER: ${MONGO_USER}
       - MONGO_PASSWORD: ${MONGO_PASSWORD}
       - SESSION_SECRET: ${SESSION_SECRET}
